@@ -1,0 +1,11 @@
+@import '../../../styles/colors';
+
+.centeredTextInput {
+    width: 100%;
+    padding: 6px 0px;
+    text-align: center;
+
+    @media (min-width: 768px) {
+        padding: 12.6px 0px;
+    }
+}

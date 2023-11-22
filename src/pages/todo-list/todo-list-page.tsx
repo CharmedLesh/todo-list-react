@@ -1,5 +1,6 @@
-import styles from './todo-list-page.module.scss';
+import { TodoListModule } from '../../modules/todo-list';
 
 export const TodoListPage = () => {
-	return <div className={styles.todo}>Todo List page</div>;
+    const $todoList = TodoListModule({ localStorageKey: 'EXAMPLE' });
+    return $todoList;
 };

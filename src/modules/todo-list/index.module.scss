@@ -1,0 +1,16 @@
+@import '../../styles/colors';
+
+.todoListModule {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid $accent;
+    padding: 0px 34px 16px;
+    margin: 20px 0px;
+    background-color: $light;
+
+    @media (min-width: 768px) {
+        width: 618px;
+    }
+}

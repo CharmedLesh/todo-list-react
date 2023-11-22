@@ -1,13 +1,10 @@
-import styles from './error-page.module.scss';
+import { ErrorModule } from '../../modules/error';
 
 export const ErrorPage = () => {
-	return (
-		<div className={styles.error}>
-			<h1>Oops!</h1>
-			<p>Sorry, an unexpected error has occurred.</p>
-			<p>
-				<i>Not Found</i>
-			</p>
-		</div>
-	);
+    const $notFoundErrorBanner = ErrorModule({
+        errorDescription: 'Sorry, an unexpected error has occurred.',
+        errorInfo: 'Not Found'
+    });
+
+    return $notFoundErrorBanner;
 };

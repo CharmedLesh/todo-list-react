@@ -1,0 +1,12 @@
+@import '../../../../styles/fonts';
+@import '../../../../styles/colors';
+
+.title {
+    font-family: $noto-sans;
+    text-align: center;
+    font-weight: 800;
+    color: $dark;
+    letter-spacing: -1px;
+    margin: 16px 0px;
+    text-shadow: $accent 0px 0 2px;
+}
