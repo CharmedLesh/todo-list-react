@@ -7,7 +7,8 @@ import { ITask } from '../../interfaces/todo-list-module-interfaces';
 import { Title } from './components/title/title';
 import { NewTaskForm } from './components/new-task-form/new-task-form';
 import { TasksList } from './components/tasks-list/tasks-list';
-
+import { ProgressBar } from './components/progress-bar/progress-bar';
+import { RemoveCheckedButton } from './components/remove-checked-button/remove-checked-button';
 import styles from './index.module.scss';
 
 interface ITodoListModuleProps {
@@ -82,6 +83,14 @@ export const TodoListModule: FC<ITodoListModuleProps> = (props) => {
         localStorage.set(updatedTasksList);
     };
 
+    const onRemoveCheckedHandler = () => {
+        const updatedTasksList = tasksList.filter((task) => task.isChecked === false);
+        // update state
+        setTasksList(updatedTasksList);
+        // update localstorage
+        localStorage.set(updatedTasksList);
+    };
+
     return (
         <div className={styles.todoListModule}>
             <Title />
@@ -97,7 +106,13 @@ export const TodoListModule: FC<ITodoListModuleProps> = (props) => {
                 areButtonsAndInputsDisabled={areButtonsAndInputsDisabled}
                 changeButtonsAndInputsDisabled={changeButtonsAndInputsDisabled}
             />
-            <div>action buttons</div>
+            <div className={styles.bottomContainer}>
+                <ProgressBar />
+                <RemoveCheckedButton
+                    onRemoveCheckedHandler={onRemoveCheckedHandler}
+                    areButtonsAndInputsDisabled={areButtonsAndInputsDisabled}
+                />
+            </div>
         </div>
     );
 };

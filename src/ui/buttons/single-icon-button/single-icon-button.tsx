@@ -19,7 +19,7 @@ export const SingleIconButton: FC<ISingleIconButtonProps> = (props) => {
     !isIconValid() && Logger.logError('Wrong icon prowided. Icon should be SVG or string with 1 char.');
 
     return (
-        <button className={styles.singleIconAccentButton} onClick={onClick} disabled={disabled}>
+        <button className={styles.singleIconButton} onClick={onClick} disabled={disabled}>
             {isIconValid() ? icon : '?'}
         </button>
     );
