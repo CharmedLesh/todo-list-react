@@ -1,0 +1,8 @@
+.checkboxInput {
+    margin: 0px;
+
+    &:active,
+    &:focus {
+        outline: none;
+    }
+}

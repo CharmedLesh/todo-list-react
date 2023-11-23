@@ -5,11 +5,13 @@ import styles from './new-task-form.module.scss';
 
 interface INewTaskFormProps {
     onSubmitHandler: (event: SyntheticEvent, newTaskValue: string) => void;
+    areButtonsAndInputsDisabled: boolean;
 }
 
 export const NewTaskForm: FC<INewTaskFormProps> = (props) => {
+    const { onSubmitHandler, areButtonsAndInputsDisabled } = props;
+
     const [newTaskInputValue, setNewTaskInputValue] = useState('');
-    const { onSubmitHandler } = props;
 
     const newTaskInputOnChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
         setNewTaskInputValue(event.target.value);
@@ -27,12 +29,14 @@ export const NewTaskForm: FC<INewTaskFormProps> = (props) => {
                     type="text"
                     spellCheck="false"
                     placeholder="what needs to be done?"
-                    onChangeHandler={newTaskInputOnChangeHandler}
                     value={newTaskInputValue}
+                    required={true}
+                    disabled={areButtonsAndInputsDisabled}
+                    onChange={newTaskInputOnChangeHandler}
                 />
             </div>
             <div className={styles.submitTaskButtonContainer}>
-                <SingleIconButton icon="+" type="submit" />
+                <SingleIconButton icon="+" type="submit" disabled={areButtonsAndInputsDisabled} />
             </div>
         </form>
     );

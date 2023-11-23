@@ -1,0 +1,84 @@
+@import '../../../../styles/colors';
+
+.tasksListItem {
+    display: flex;
+    align-items: center;
+    height: 42px;
+    border-top: 1px solid $gray;
+    background-color: #f9fdff;
+    transition: 200ms;
+
+    &:nth-last-child(1) {
+        border-bottom: 1px solid $gray;
+    }
+
+    &.tasksListItemChecked {
+        background-color: #eaf7ff;
+
+        input[type='text'] {
+            text-decoration: line-through;
+            background-color: transparent;
+
+            &:focus {
+                background-color: #f9fdff;
+                text-decoration: none;
+            }
+        }
+    }
+
+    input[type='checkbox'] {
+        width: 10%;
+
+        @media (min-width: 768px) {
+            height: 16px;
+            width: 5%;
+        }
+    }
+
+    input[type='text'] {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 12px;
+        color: $accent;
+        background-color: $light;
+        padding: 4px;
+        width: 70%;
+
+        @media (min-width: 768px) {
+            font-size: 14px;
+            width: 85%;
+        }
+    }
+}
+
+.buttonContainer {
+    width: 10%;
+    padding: 0px;
+
+    @media (min-width: 768px) {
+        width: 5%;
+    }
+
+    button {
+        display: flex;
+        justify-content: center;
+
+        svg {
+            fill: #8fafc5;
+        }
+
+        &:focus,
+        &:active {
+            outline: none;
+
+            svg {
+                fill: $accent;
+            }
+        }
+    }
+
+    &.highlightedButtonContainer {
+        svg {
+            fill: $accent;
+        }
+    }
+}

@@ -1,14 +1,8 @@
-import { ChangeEvent, FC } from 'react';
-import { IBasicInput } from '../../../interfaces/inputs-interfaces';
+import { FC, InputHTMLAttributes } from 'react';
 import styles from './centered-text-input.module.scss';
 
-interface ICenteredTextInputProps extends IBasicInput {
-    type: 'text' | 'password' | 'email';
-    onChangeHandler: (event: ChangeEvent<HTMLInputElement>) => void;
-}
-
-export const CenteredTextInput: FC<ICenteredTextInputProps> = (props) => {
-    const { type, value, spellCheck, placeholder, onChangeHandler } = props;
+export const CenteredTextInput: FC<InputHTMLAttributes<HTMLInputElement>> = (props) => {
+    const { type, value, spellCheck, placeholder, required, disabled, onChange } = props;
 
     return (
         <input
@@ -17,7 +11,9 @@ export const CenteredTextInput: FC<ICenteredTextInputProps> = (props) => {
             spellCheck={spellCheck}
             placeholder={placeholder}
             className={styles.centeredTextInput}
-            onChange={onChangeHandler}
+            onChange={onChange}
+            required={required}
+            disabled={disabled}
         ></input>
     );
 };
